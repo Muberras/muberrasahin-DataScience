@@ -1,18 +1,16 @@
-# Muberra — Editorial (HTML5 UP)
 
-This is a lightweight personal site using the **Editorial** theme by HTML5 UP.
-It includes:
-- Profile photo at `images/me.jpg`
-- CV at `assets/Muberra_Resume_2025.pdf`
-- Intro section with links
+# Personal Site — Muberra Sahin
 
-## Quick publish (GitHub Pages)
+Implements the design plan:
+- Light, legible theme; generous whitespace
+- Home: value statement + recent highlights (3–5 items)
+- Top nav: About, Projects, Publications, Teaching/Outreach, Contact
+- Two‑tier bio: short intro on Home + full CV (PDF) and About page
+- Accessibility: alt text, semantic headings, focus styles, good contrast
+- Media/Press kit page stub
 
-1. Create a new repository on GitHub (recommended name: `muberras.github.io` for a user site, or any repo for a project site).
-2. Upload **all files in this folder** (keep the folder structure). Ensure `.nojekyll` is included.
-3. In the repo: **Settings → Pages → Build and deployment → Source: `Deploy from a branch`**, then select `main` branch and `/ (root)` folder. Save.
-4. Wait a minute for deployment. Your site will be at:
-   - `https://muberras.github.io/` (if using the special user‑site name), or
-   - `https://muberras.github.io/REPO_NAME/` (for a project site).
-
-To update the intro text or links, edit `index.html`.
+## Edit Me
+- Replace email in `contact.html` (search for YOUR_EMAIL_HERE).
+- Update project links/titles in `projects.html`.
+- Add publications in `publications.html`.
+- Press files can go into `assets/press/`.

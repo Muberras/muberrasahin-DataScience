@@ -1,29 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Muberra Sahin — Data &amp; AI</title>
-    <meta name="description" content="Muberra Sahin — Data analytics, BI, SQL/ETL, SAP BusinessObjects, Power BI, and ML/AI with MLOps." />
-    <link rel="stylesheet" href="assets/css/custom.css" />
-  </head>
-  <body>
-    <main class="viewport">
-      <section class="card" aria-labelledby="intro-title">
-        <div class="content">
-          <div class="copy">
-            <h1 id="intro-title">Hello, I'm Muberra Sahin</h1>
-            <p>I design and deliver data products across the full analytics and AI lifecycle—ranging from complex SQL queries, database and universe development, and enterprise reporting (Power BI dashboards, SAP BusinessObjects) to advanced Machine Learning (ML) and Artificial Intelligence (AI) models. I also focus on MLOps practices, deploying solutions such as Streamlit applications for real-world use.<br><br>I recently completed a <strong>500-hour ML/AI bootcamp</strong>, publishing over <strong>40 ML/AI/MLOps projects on GitHub</strong>, and an <strong>eight-week Caltech Astronomy workshop</strong> where I applied Unix, Python, and Git/GitHub to astronomical data analysis and scientific computing.</p>
-            <div class="cta">
-              <a class="btn primary" href="assets/Muberra_Resume_2025.pdf" target="_blank" rel="noopener">Download CV</a>
-              <a class="btn" href="https://github.com/Muberras" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </div>
-          <div class="photo">
-            <img src="images/me.jpg" alt="Muberra Sahin" />
-          </div>
-        </div>
-      </section>
-    </main>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home — Muberra Sahin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="header">
+    <div class="container nav" role="navigation" aria-label="Main">
+      <div class="brand"><a href="index.html" aria-label="Home">Muberra Sahin</a></div>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="teaching.html">Teaching/Outreach</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="main">
+    <div class="container">
+
+<section class="card hero" aria-labelledby="hero-title">
+  <div class="copy">
+    <h1 id="hero-title">Data & AI professional building reliable analytics systems and deployable ML solutions—from SQL/ETL and BI to streamlined MLOps.</h1>
+    <p>I design and deliver data products across the full analytics and AI lifecycle—complex SQL, database and universe development, enterprise BI (Power BI, SAP BusinessObjects), and ML/AI models with MLOps (Streamlit, CI/CD). Recently completed a <strong>500‑hour ML/AI bootcamp</strong>, shipped <strong>40+ projects</strong> to GitHub, and finished an <strong>eight‑week Caltech Astronomy workshop</strong> applying Unix, Python, and Git/GitHub to scientific computing.</p>
+    <div class="cta">
+      <a class="btn primary" href="assets/Muberra_Resume_2025.pdf" target="_blank" rel="noopener">Download CV</a>
+      <a class="btn" href="https://github.com/Muberras" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <div class="photo">
+    <img src="images/me.jpg" alt="Portrait of Muberra Sahin at the beach" />
+  </div>
+</section>
+
+<section aria-labelledby="recent-work-title" style="margin-top:28px;">
+  <h2 id="recent-work-title" class="sr-only">Recent work</h2>
+  <div class="grid">
+    <article class="card item col-4">
+      <h3><a href="https://github.com/Muberras/FashionApp" target="_blank" rel="noopener">Fashion Recommender (DL)</a></h3>
+      <p>Image embeddings + nearest neighbors; Streamlit app and deployment.</p>
+      <div class="meta">MLOps · Computer Vision</div>
+    </article>
+    <article class="card item col-4">
+      <h3><a href="https://github.com/Muberras/ColorRecognition" target="_blank" rel="noopener">Color Recognition</a></h3>
+      <p>Classical ML baselines vs. tuned models; saved artifacts and minimal API.</p>
+      <div class="meta">ML · Model Comparison</div>
+    </article>
+    <article class="card item col-4">
+      <h3><a href="https://github.com/Muberras" target="_blank" rel="noopener">BusinessObjects/Power BI Portfolio</a></h3>
+      <p>Enterprise reports and dashboards; SQL/Universe development.</p>
+      <div class="meta">BI · SQL/ETL</div>
+    </article>
+  </div>
+</section>
+
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Muberra Sahin · <a href="press.html">Media/Press Kit</a></div>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
