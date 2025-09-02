@@ -1,0 +1,74 @@
+
+/* --- Minimal reset of theme spacing --- */
+body { margin: 0; }
+.wrap {
+  max-width: 900px;
+  margin: 7vh auto;
+  padding: 0 16px;
+}
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 28px;
+}
+
+/* --- Simple two-column grid --- */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 24px;
+  align-items: center;
+}
+.text h1 {
+  margin: 0 0 10px 0;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+.text p {
+  margin: 0 0 16px 0;
+  max-width: 60ch;
+}
+.buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+  text-decoration: none;
+}
+.btn.primary {
+  background: #2e7cf6;
+  color: #fff;
+  border-color: #2e7cf6;
+}
+
+/* --- Photo sizing (strict) --- */
+.photo {
+  display: flex;
+  justify-content: flex-end;
+}
+.photo img {
+  width: 100%;
+  max-width: 140px;   /* hard cap to avoid oversizing */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* --- Mobile stacking --- */
+@media (max-width: 680px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .photo {
+    justify-content: flex-start;
+  }
+  .photo img {
+    max-width: 120px;
+  }
+  .wrap { margin: 4vh auto; }
+}
+
+/* --- Optional: neutralize HTML5UP default extremes if present --- */
+.wrapper, .inner { all: unset; }
