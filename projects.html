@@ -1,37 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Projects — ML & MLOps · BI & Report Development — Muberra Sahin</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a class="active" href="projects.html">Projects</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="Muberra_Sahin_CV_2025.pdf" target="_blank" rel="noopener">CV</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="banner">
+  <div class="banner-inner">
+    <h1>Projects</h1>
+    <h2>ML & MLOps · BI & Report Development</h2>
+    <div class="tools">
+      <span class="chip">Power BI</span><span class="chip">SAP BO 4.3</span>
+      <span class="chip">Python</span><span class="chip">Anaconda</span>
+      <span class="chip">scikit-learn</span><span class="chip">PyCaret</span>
+      <span class="chip">TensorFlow/Keras</span><span class="chip">Streamlit</span>
+      <span class="chip">Docker</span><span class="chip">Hugging Face Spaces</span>
+      <span class="chip">Git/GitHub</span>
+    </div>
+  </div>
+</section>
+
+<main class="section">
+  <div id="repo-grid" class="repo-grid" aria-live="polite">
+    <!-- Repos will load here -->
+  </div>
+  <p class="meta" id="repo-fallback" style="margin-top:16px; display:none;">
+    Could not load repositories. See the full list here:
+    <a href="https://github.com/muberras" target="_blank" rel="noopener">github.com/muberras</a>.
+  </p>
+  <noscript>
+    <p class="meta">Enable JavaScript to load repositories automatically.
+      Full list: <a href="https://github.com/muberras" target="_blank" rel="noopener">github.com/muberras</a>.
+    </p>
+  </noscript>
+</main>
+
+<footer>©2025 BY MUBERRA SAHIN</footer>
+
 <script>
-(async function loadRepos(){
+(function(){
+  const USER = 'muberras';
+  const EXCLUDE = new Set(['muberrasahin-DataScience'.toLowerCase()]);
   const grid = document.getElementById('repo-grid');
-  const EXCLUDE = new Set(['muberrasahin-DataScience'.toLowerCase()]); // ← excluded by name
+  const fallback = document.getElementById('repo-fallback');
 
-  try{
-    const res = await fetch('https://api.github.com/users/muberras/repos?per_page=30&sort=updated');
-    if(!res.ok) throw new Error('GitHub API error');
-    const repos = await res.json();
-
-    if(!Array.isArray(repos) || repos.length === 0){
-      grid.innerHTML = '<p class="meta">No repositories found.</p>';
+  function render(repos){
+    if(!repos || !repos.length){
+      fallback.style.display = 'block';
+      grid.innerHTML = '';
       return;
     }
-
-    const cleaned = repos
-      .filter(r => !r.fork && !EXCLUDE.has(r.name.toLowerCase()))
-      .sort((a,b)=> new Date(b.pushed_at) - new Date(a.pushed_at))
-      .slice(0, 12);
-
-    grid.innerHTML = cleaned.map(r => {
+    grid.innerHTML = repos.map(r => {
       const desc = r.description ? r.description.replace(/</g,'&lt;') : 'No description';
-      const lang = r.language ? r.language : '—';
-      const stars = (r.stargazers_count||0);
+      const lang = r.language || '—';
+      const stars = r.stargazers_count || 0;
+      const updated = new Date(r.pushed_at).toLocaleDateString();
       return `
         <article class="repo-card">
           <h3><a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a></h3>
           <p>${desc}</p>
-          <div class="repo-meta">Language: ${lang} · ★ ${stars} · Updated: ${new Date(r.pushed_at).toLocaleDateString()}</div>
+          <div class="repo-meta">Language: ${lang} · ★ ${stars} · Updated: ${updated}</div>
         </article>
       `;
     }).join('');
-  }catch(e){
-    grid.innerHTML = '<p class="meta">Could not load repositories (rate-limit or network). See <a href="https://github.com/muberras" target="_blank" rel="noopener">github.com/muberras</a>.</p>';
   }
+
+  async function load(){
+    try{
+      const url = `https://api.github.com/users/${USER}/repos?per_page=100&sort=updated`;
+      const res = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' }});
+      if(!res.ok) throw new Error(`GitHub API ${res.status}`);
+      const repos = await res.json();
+
+      const cleaned = repos
+        .filter(r => !r.fork && !EXCLUDE.has(r.name.toLowerCase()))
+        .sort((a,b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+        .slice(0, 12);
+
+      render(cleaned);
+    } catch (err){
+      console.warn('Repo load failed:', err);
+      fallback.style.display = 'block';
+      render([]);
+    }
+  }
+
+  load();
 })();
 </script>
+</body>
+</html>
