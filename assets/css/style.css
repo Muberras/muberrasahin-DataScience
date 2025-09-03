@@ -151,3 +151,40 @@ footer {
   border-top: 1px solid #e6edf2;
 }
 
+/* === Bigger + bold tool chips under titles === */
+.tools .chip{
+  font-size: 18px;        /* was 16px */
+  font-weight: 700;       /* make them bold */
+  padding: 10px 14px;     /* slightly larger pill */
+}
+
+/* === Put your photo on the RIGHT and match the text box size === */
+.about{
+  grid-template-columns: 1fr 1fr;  /* equal-width columns */
+  align-items: stretch;            /* make both columns equal height */
+}
+
+/* text box (white panel) on the LEFT */
+.panel{
+  grid-column: 1;
+  height: 100%;
+}
+
+/* portrait on the RIGHT, fill the column height/width */
+.portrait{
+  grid-column: 2;
+  width: 100%;          /* override the earlier fixed width */
+  height: 100%;         /* match panel height */
+  object-fit: cover;    /* crop nicely without distortion */
+  border-radius: 10px;  /* keep your rounded corners */
+}
+
+/* Mobile: stack neatly (panel first, photo below) */
+@media (max-width: 900px){
+  .panel{ grid-column: 1; }
+  .portrait{
+    grid-column: 1;
+    height: auto;       /* let it size naturally on small screens */
+    margin-top: 16px;
+  }
+}
