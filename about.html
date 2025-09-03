@@ -1,49 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Muberra Sahin</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css" />
+  <link rel="stylesheet" href="index.html" onload="this.outerHTML=''"><!-- reuse inline CSS from index -->
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="header">
-    <div class="container nav" role="navigation" aria-label="Main">
-      <div class="brand"><a href="index.html" aria-label="Home">Muberra Sahin</a></div>
-      <nav>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
-        <a href="teaching.html">Teaching/Outreach</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-  <main id="main" class="main">
-    <div class="container">
-
-<section class="card">
-  <h1>About</h1>
-  <p>I work across analytics engineering and applied ML, partnering with stakeholders to turn requirements into production-quality dashboards, reports, and models. Day‑to‑day includes SQL/ETL, data modeling, SAP BusinessObjects universes, and Power BI dashboards, plus model development and delivery with MLOps practices.</p>
-  <p><strong>Training</strong>: 500‑hour ML/AI bootcamp (40+ projects on GitHub). Caltech Astronomy workshop (8 weeks): Unix, Python, and Git/GitHub for astronomical data and scientific computing.</p>
-  <p><a class="btn primary" href="assets/Muberra_Resume_2025.pdf" target="_blank" rel="noopener">View Full CV (PDF)</a></p>
-</section>
-<section class="card" style="margin-top:24px;">
-  <h2>Background</h2>
-  <p>I design and deliver data products across the full analytics and AI lifecycle—ranging from complex SQL queries, database and universe development, and enterprise reporting (Power BI dashboards, SAP BusinessObjects) to advanced Machine Learning (ML) and Artificial Intelligence (AI) models. I also focus on MLOps practices, deploying solutions such as Streamlit applications for real‑world use.</p>
-  <p>I recently completed a <strong>500‑hour ML/AI bootcamp</strong>, publishing over <strong>40 ML/AI/MLOps projects on GitHub</strong>, and an <strong>eight‑week Caltech Astronomy workshop</strong> where I applied Unix, Python, and Git/GitHub to astronomical data analysis and scientific computing.</p>
-</section>
-
-
-    </div>
-  </main>
-  <footer class="footer">
-    <div class="container">© <span id="year"></span> Muberra Sahin · <a href="press.html">Media/Press Kit</a></div>
-  </footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <div class="header"><div class="container nav">
+    <div class="brand"><a href="index.html">Muberra Sahin</a></div>
+    <nav>
+      <a href="about.html">About</a><a href="projects.html">Projects</a>
+      <a href="teaching.html">Teaching/Outreach</a><a href="contact.html">Contact</a>
+    </nav>
+  </div></div>
+  <main class="main"><div class="container">
+    <h1>About</h1>
+    <p>I design and deliver data products across the analytics and AI lifecycle—complex SQL, database and universe development, enterprise BI (Power BI, SAP BusinessObjects), and ML/AI models with MLOps deployment. I completed a <strong>500-hour ML/AI bootcamp</strong> with <strong>40+ projects</strong> on GitHub and an <strong>eight-week Caltech Astronomy workshop</strong> focused on Unix, Python, and Git/GitHub for scientific computing.</p>
+    <p><a href="assets/Muberra_Resume_2025.pdf" target="_blank" rel="noopener">View CV (PDF)</a></p>
+  </div></main>
+  <footer class="footer"><div class="container small">© <span id="year"></span> Muberra Sahin</div></footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
