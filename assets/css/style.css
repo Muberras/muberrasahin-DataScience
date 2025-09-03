@@ -146,6 +146,7 @@ footer {
   background: #fff;
   border-top: 1px solid #e6edf2;
 }
+
 /* === Side-by-side like the reference, photo on the RIGHT, equal size === */
 .about{
   grid-template-columns: 1fr 1fr;   /* equal columns */
@@ -182,3 +183,4 @@ footer {
     margin-top: 16px;
   }
 }
+
