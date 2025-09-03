@@ -13,7 +13,7 @@
     <a href="about.html">About</a>
     <a class="active" href="projects.html">Projects</a>
     <a href="teaching.html">Teaching</a>
-    <a href="files/Muberra_Sahin_CV.pdf" target="_blank" rel="noopener">CV</a>
+    <a href="Muberra_Sahin_CV.pdf" target="_blank" rel="noopener">CV</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
@@ -24,6 +24,7 @@
     <h2>ML & MLOps · BI & Report Development</h2>
     <div class="tools">
       <span class="chip">Power BI</span><span class="chip">SAP BO 4.3</span>
+      <span class="chip">Python</span><span class="chip">Anaconda</span>
       <span class="chip">scikit-learn</span><span class="chip">PyCaret</span>
       <span class="chip">TensorFlow/Keras</span><span class="chip">Streamlit</span>
       <span class="chip">Docker</span><span class="chip">Hugging Face Spaces</span>
@@ -33,39 +34,48 @@
 </section>
 
 <main class="section">
-  <div class="grid">
-    <article class="card">
-      <h3><a href="https://github.com/your-username/Color-Recognition" target="_blank" rel="noopener">Color Recognition (Computer Vision)</a></h3>
-      <div class="meta">OpenCV · Classical ML · Model registry</div>
-      <p>Improved color recognition with model comparison, saved artifacts, and a simple app.</p>
-    </article>
-
-    <article class="card">
-      <h3><a href="https://github.com/your-username/Hate-Speech-Detection" target="_blank" rel="noopener">Hate Speech Detection (NLP)</a></h3>
-      <div class="meta">TF-IDF · Linear models · Threshold tuning</div>
-      <p>Imbalanced text classification with precision/recall focus and clean deployment artifacts.</p>
-    </article>
-
-    <article class="card">
-      <h3><a href="https://github.com/your-username/EV-Adoption-Forecasting" target="_blank" rel="noopener">EV Adoption Forecasting (Time Series)</a></h3>
-      <div class="meta">SARIMA/LSTM comparison</div>
-      <p>Forecasting with interpretable baselines and deep-learning variants.</p>
-    </article>
-
-    <article class="card">
-      <h3><a href="https://github.com/your-username/BART-Ridership-Analysis" target="_blank" rel="noopener">BART Ridership Analysis</a></h3>
-      <div class="meta">Feature engineering · ML pipelines</div>
-      <p>Data engineering and modeling for ridership trends; reproducible workflow and visuals.</p>
-    </article>
-
-    <article class="card">
-      <h3><a href="https://github.com/your-username/Fashion-Recommender" target="_blank" rel="noopener">Fashion Recommender (Deep Learning)</a></h3>
-      <div class="meta">CNN embeddings · Nearest neighbors</div>
-      <p>Content-based retrieval app using image features; clean app + saved models.</p>
-    </article>
+  <div id="repo-grid" class="repo-grid" aria-live="polite">
+    <!-- Repos will load here -->
   </div>
+  <p class="meta" style="margin-top:16px">
+    Full list: <a href="https://github.com/muberras" target="_blank" rel="noopener">github.com/muberras</a>
+  </p>
 </main>
 
 <footer>©2025 BY MUBERRA SAHIN</footer>
+
+<script>
+(async function loadRepos(){
+  const grid = document.getElementById('repo-grid');
+  try{
+    const res = await fetch('https://api.github.com/users/muberras/repos?per_page=30&sort=updated');
+    if(!res.ok) throw new Error('GitHub API error');
+    const repos = await res.json();
+    if(!Array.isArray(repos) || repos.length === 0){
+      grid.innerHTML = '<p class="meta">No repositories found.</p>';
+      return;
+    }
+    const cleaned = repos
+      .filter(r => !r.fork)
+      .sort((a,b)=> new Date(b.pushed_at) - new Date(a.pushed_at))
+      .slice(0, 12);
+
+    grid.innerHTML = cleaned.map(r => {
+      const desc = r.description ? r.description.replace(/</g,'&lt;') : 'No description';
+      const lang = r.language ? r.language : '—';
+      const stars = (r.stargazers_count||0);
+      return `
+        <article class="repo-card">
+          <h3><a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a></h3>
+          <p>${desc}</p>
+          <div class="repo-meta">Language: ${lang} · ★ ${stars} · Updated: ${new Date(r.pushed_at).toLocaleDateString()}</div>
+        </article>
+      `;
+    }).join('');
+  }catch(e){
+    grid.innerHTML = '<p class="meta">Could not load repositories (rate-limit or network). See <a href="https://github.com/muberras" target="_blank" rel="noopener">github.com/muberras</a>.</p>';
+  }
+})();
+</script>
 </body>
 </html>
