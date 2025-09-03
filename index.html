@@ -4,55 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Muberra Sahin — Data & AI</title>
-  <style>
-    :root{
-      --bg:#ffffff; --text:#111; --muted:#444; --link:#0a58ca; --border:#e6e6e6; --overlay:rgba(0,0,0,0.45);
-    }
-    @media (prefers-color-scheme: dark){
-      :root{ --bg:#0b0d10; --text:#e9ecef; --muted:#b2b9c2; --link:#8ab4f8; --border:#1e2936; --overlay:rgba(0,0,0,0.45); }
-    }
-    *{box-sizing:border-box}
-    html{font-size:16px}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Helvetica,Arial,sans-serif;line-height:1.75}
-    h1,h2,h3{font-family:Georgia,"Times New Roman",Times,serif;line-height:1.25;color:var(--text)}
-    h1{font-size:2.25rem;letter-spacing:-.01em;margin:.2rem 0 .75rem}
-    h2{font-size:1.5rem;margin:2rem 0 .75rem}
-    p{margin:0 0 1rem}
-    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
-    .container{max-width:860px;margin:0 auto;padding:0 20px}
-    .header{border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:10}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:58px}
-    .brand a{font-weight:700;color:var(--text);text-decoration:none}
-    nav a{margin-left:18px;color:var(--text)} nav a:hover{color:var(--link)}
-    .main{padding:28px 0 64px}
-    .footer{border-top:1px solid var(--border);padding:18px 0;color:var(--muted);font-size:.95rem}
-    .masthead{position:relative;min-height:38vh;display:flex;align-items:flex-end;color:#fff}
-    .masthead::before{
-      content:"";position:absolute;inset:0;
-      background-image:
-        linear-gradient(var(--overlay),var(--overlay)),
-        url('images/banner2.jpg');
-      background-size:cover;background-position:center;
-      filter:saturate(1.05) contrast(1.02);
-    }
-    .masthead .inner{width:100%}
-    .masthead .content{padding:40px 20px 28px}
-    .mast-title{margin:0 0 .25rem 0;font-size:2.4rem;letter-spacing:-.01em;color:#fff}
-    .mast-sub{margin:0;color:#e7eaf0}
-    .avatar{
-      width:120px;height:120px;border-radius:50%;border:3px solid rgba(255,255,255,0.9);
-      box-shadow:0 6px 20px rgba(0,0,0,.25);object-fit:cover;object-position:center;
-      position:absolute;right:20px;bottom:-60px;background:#fff;
-    }
-    @media (max-width:700px){ .avatar{width:96px;height:96px;bottom:-48px} }
-    section{margin-top:48px}
-    .list{list-style:none;padding:0;margin:0}
-    .list li{margin:0 0 1rem}
-    .small{color:var(--muted);font-size:.95rem}
-    hr{border:0;border-top:1px solid var(--border);margin:2rem 0}
-    .skip-link{position:absolute;left:-9999px}
-    .skip-link:focus{left:8px;top:8px;background:#fffb;border:2px solid #000;padding:8px;border-radius:8px}
-  </style>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@9..14,600;9..14,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/site.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -75,7 +33,7 @@
         <p class="mast-sub">Data &amp; AI — SQL/ETL · SAP BO · Power BI · ML/AI · MLOps</p>
       </div>
     </div>
-    <img src="images/me.jpg" alt="Portrait of Muberra Sahin" class="avatar">
+    <img src="images/me.jpg" alt="Portrait of Muberra Sahin" class="avatar" />
   </section>
 
   <main id="main" class="main">
@@ -86,6 +44,8 @@
           <li><strong>Machine Learning — Time Series</strong> · <a href="https://github.com/Muberras/Machine-Learning-Projects-Time-Series" target="_blank" rel="noopener">github.com/Muberras/Machine-Learning-Projects-Time-Series</a></li>
           <li><strong>Machine Learning — Recommendation Systems</strong> · <a href="https://github.com/Muberras/Machine-Learning-Projects-Recommendation-Systems" target="_blank" rel="noopener">github.com/Muberras/Machine-Learning-Projects-Recommendation-Systems</a></li>
           <li><strong>Machine Learning — Classification</strong> · <a href="https://github.com/Muberras/Machine-Learning-Projects-Classification" target="_blank" rel="noopener">github.com/Muberras/Machine-Learning-Projects-Classification</a></li>
+          <li><strong>Machine Learning — Regression</strong> · <a href="https://github.com/Muberras/Machine-Learning-Projects-Regression" target="_blank" rel="noopener">github.com/Muberras/Machine-Learning-Projects-Regression</a></li>
+          <li><strong>Machine Learning — Clustering</strong> · <a href="https://github.com/Muberras/Machine-Learning-Projects-Clustering" target="_blank" rel="noopener">github.com/Muberras/Machine-Learning-Projects-Clustering</a></li>
         </ul>
       </section>
     </div>
