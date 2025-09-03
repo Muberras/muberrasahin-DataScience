@@ -1,42 +1,96 @@
-/* Base */
+/* Google font: light, modern, not bold by default */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
 :root{
-  --bg:#f5f9fb; --panel:#e9f2f7; --text:#333; --muted:#556;
+  --bg:#eef7f8;          /* page strip (light blue like reference) */
+  --page:#f7fafc;        /* global page bg */
+  --text:#222;
+  --muted:#5b6b75;
+  --panel:#ffffff;       /* white card behind text */
+  --max:1100px;
 }
+
+/* Base */
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 "Helvetica Neue",Helvetica,Arial,sans-serif}
-a{color:inherit;text-decoration:none}
-a:hover{opacity:.85}
+html,body{
+  margin:0; padding:0;
+  font-family:'Lato', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:var(--text); background:var(--page);
+  line-height:1.8; font-weight:300;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+img{max-width:100%; display:block}
+a{color:#0b6aa9; text-decoration:none}
+a:hover{opacity:.9}
 
 /* Header / Nav */
-.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(160%) blur(6px);border-bottom:1px solid #e6eef3}
-.nav{max-width:1100px;margin:0 auto;display:flex;gap:24px;align-items:center;padding:10px 20px}
-.nav a{padding:8px 10px;border-radius:10px}
-.nav a.active{background:#eaf2f7}
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:saturate(160%) blur(8px);
+  border-bottom:1px solid #e6edf2;
+}
+.nav{max-width:var(--max); margin:0 auto; display:flex; gap:20px; align-items:center; padding:10px 20px}
+.nav a{padding:8px 10px; border-radius:10px; font-weight:300}
+.nav a.active{background:#eaf3f7}
 
-/* Banner */
-.banner{position:relative;height:320px;background:url("images/banner2.jpg") center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
-.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.35))}
-.banner-inner{position:relative;z-index:1;padding:0 16px}
-.banner h1{margin:0;font-weight:600;font-size:56px;letter-spacing:.2px}
-.banner h2{margin:.5rem 0 0;font-weight:300;font-size:22px;opacity:.95}
+/* Banner (uses your banner2.jpg) */
+.banner{
+  position:relative; height:340px;
+  background:url("../../images/banner2.jpg") center/cover no-repeat;
+  display:flex; align-items:center; justify-content:center; text-align:center; color:#fff;
+}
+.banner::after{content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.38));
+}
+.banner-inner{position:relative; z-index:1; padding:0 16px}
+.banner h1{margin:0; font-weight:300; font-size:64px; letter-spacing:.2px}
+.banner h2{margin:.6rem 0 0; font-weight:300; font-size:24px; opacity:.98}
 
-/* Section: about / content */
-.section{max-width:1100px;margin:0 auto;padding:42px 20px}
-.about{display:grid;grid-template-columns:280px 1fr;gap:32px;background:var(--panel);border-radius:14px;padding:24px}
-.about img{width:100%;height:auto;border-radius:10px;display:block}
+/* Section strip like reference (light blue across page) */
+.strip{background:var(--bg); padding:56px 0}
 
-/* Cards / lists */
-.grid{display:grid;gap:18px}
-.card{background:#fff;border:1px solid #e8eef2;border-radius:14px;padding:20px}
-.card h3{margin:.2rem 0 .6rem;font-weight:600}
-.meta{font-size:14px;color:var(--muted);margin:.2rem 0 1rem}
+/* About layout: photo left, white card right */
+.shell{max-width:var(--max); margin:0 auto; padding:0 20px}
+.about{
+  display:grid; grid-template-columns:300px 1fr; gap:34px; align-items:start;
+}
+.portrait{
+  width:300px; border-radius:6px; object-fit:cover;
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+}
+
+/* White text panel */
+.panel{
+  background:var(--panel);
+  border-radius:8px;
+  padding:28px 30px;
+  box-shadow:0 10px 25px rgba(0,0,0,.05);
+}
+.panel p{margin:0 0 14px}
+
+/* Cards & grids for Projects/Teaching */
+.grid{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.card{
+  background:#fff; border:1px solid #e7eef3; border-radius:10px; padding:22px;
+  box-shadow:0 6px 18px rgba(0,0,0,.04);
+}
+.card h3{margin:.2rem 0 .6rem; font-weight:300; font-size:24px}
+.meta{color:var(--muted); font-size:15px; margin:-2px 0 12px}
+
+/* Content width and spacing */
+.section{max-width:var(--max); margin:0 auto; padding:42px 20px}
+.section h2{font-weight:300; font-size:32px; margin:0 0 16px}
 
 /* Footer */
-footer{margin-top:30px;text-align:center;padding:22px;color:#555}
+footer{margin-top:40px; text-align:center; padding:24px; color:#6c7a83}
 
 /* Responsive */
-@media (max-width:860px){
-  .banner{height:260px}
-  .banner h1{font-size:40px}
+@media (max-width:900px){
+  .banner{height:280px}
+  .banner h1{font-size:44px}
+  .banner h2{font-size:20px}
   .about{grid-template-columns:1fr}
+  .portrait{width:100%; max-width:360px}
+  .grid{grid-template-columns:1fr}
 }
