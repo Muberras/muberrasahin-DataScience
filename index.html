@@ -1,59 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Muberra Sahin — Data & AI</title>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@9..14,600;9..14,700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="assets/css/site.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Muberra Sahin</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="header">
-    <div class="container nav">
-      <div class="brand"><a href="index.html">Muberra Sahin</a></div>
-      <nav>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="teaching.html">Teaching/Outreach</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="active" href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="mailto:muberra.sahin@aps.com">Contact</a>
+    </nav>
   </header>
 
-  <section class="masthead" aria-labelledby="mast-title">
-    <div class="inner container">
-      <div class="content">
-        <h1 id="mast-title" class="mast-title">Muberra Sahin</h1>
-        <p class="mast-sub">Data &amp; AI — SQL/ETL · SAP BO · Power BI · ML/AI · MLOps</p>
-      </div>
+  <section class="banner">
+    <div class="banner-inner">
+      <h1>Muberra Sahin</h1>
+      <h2>Data & Analytics • Power BI • SAP Business Objects</h2>
     </div>
-    <img src="images/me.jpg" alt="Portrait of Muberra Sahin" class="avatar" />
   </section>
 
-  <main id="main" class="main">
-    <div class="container">
-      <section aria-labelledby="recent">
-        <h2 id="recent">Recent Work</h2>
-        <ul class="list">
-          <li><strong>Machine Learning — Time Series</strong> · <a href="https://github.com/Muberras/Machine-Learning-Projects-Time-Series" target="_blank" rel="noopener">github.com/Muberras/Machine-Learning-Projects-Time-Series</a></li>
-          <li><strong>Machine Learning — Recommendation Systems</strong> · <a href="https://github.com/Muberras/Machine-Learning-Projects-Recommendation-Systems" target="_blank" rel="noopener">github.com/Muberras/Machine-Learning-Projects-Recommendation-Systems</a></li>
-          <li><strong>Machine Learning — Classification</strong> · <a href="https://github.com/Muberras/Machine-Learning-Projects-Classification" target="_blank" rel="noopener">github.com/Muberras/Machine-Learning-Projects-Classification</a></li>
-          <li><strong>Machine Learning — Regression</strong> · <a href="https://github.com/Muberras/Machine-Learning-Projects-Regression" target="_blank" rel="noopener">github.com/Muberras/Machine-Learning-Projects-Regression</a></li>
-          <li><strong>Machine Learning — Clustering</strong> · <a href="https://github.com/Muberras/Machine-Learning-Projects-Clustering" target="_blank" rel="noopener">github.com/Muberras/Machine-Learning-Projects-Clustering</a></li>
-        </ul>
-      </section>
+  <main class="section">
+    <div class="about">
+      <img src="images/mypic.png" alt="Portrait of Muberra Sahin">
+      <div>
+        <p>
+          I am a data and analytics professional focused on building clear, trustworthy
+          BI solutions. Work centers on SQL, Power BI, and SAP Business Objects—designing
+          reports and dashboards that help stakeholders make informed decisions.
+        </p>
+        <p>
+          Interests include practical machine-learning applications, report performance
+          optimization, and mentoring teams through upgrades and tool replacements.
+        </p>
+        <p class="meta">
+          Email: <a href="mailto:muberra.sahin@aps.com">muberra.sahin@aps.com</a>
+        </p>
+      </div>
     </div>
   </main>
 
-  <footer class="footer">
-    <div class="container small">© <span id="year"></span> Muberra Sahin</div>
-  </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <footer>©2025 BY MUBERRA SAHIN</footer>
 </body>
 </html>
