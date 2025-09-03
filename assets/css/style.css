@@ -155,3 +155,48 @@ footer{
   .repo-card h3{font-size:22px}
   .repo-card p{font-size:16px}
 }
+/* ===== FINAL LAYOUT OVERRIDES ===== */
+
+/* Hero titles a bit larger */
+.banner h1{ font-size:96px !important; }
+.banner h2{ font-size:36px !important; }
+
+/* Side-by-side: same row; photo on RIGHT; equal heights */
+.shell.about, .about{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  grid-template-areas:"panel portrait" !important;
+  gap:36px !important;
+  align-items:stretch !important;     /* make both columns the same height */
+}
+.about > .panel{ grid-area:panel !important; height:100% !important; min-height:420px !important; }
+.about > .portrait{
+  grid-area:portrait !important;      /* forces image to the RIGHT */
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  border-radius:10px !important;
+  box-shadow:0 4px 20px rgba(0,0,0,.06) !important;
+}
+.about > .panel, .about > .portrait{ margin:0 !important; } /* avoid stagger */
+
+/* Make the light-blue strip end higher so the footer white area is taller */
+.strip{ padding:64px 0 96px !important; }
+
+/* Taller/wider white footer area */
+:root{ --split:28% !important; }  /* lower number -> more white at bottom */
+footer{
+  background:#fff !important;
+  border-top:1px solid #e6edf2 !important;
+  padding:60px 0 !important;      /* taller footer band */
+}
+@media (max-width:900px){
+  .about{
+    grid-template-columns:1fr !important;
+    grid-template-areas:
+      "panel"
+      "portrait" !important;
+  }
+  .about > .panel{ min-height:auto !important; }
+  .about > .portrait{ height:auto !important; margin-top:16px !important; }
+}
