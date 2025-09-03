@@ -129,3 +129,25 @@ footer{margin-top:42px; text-align:center; padding:24px; color:#6c7a83}
   .repo-card h3{font-size:22px}
   .repo-card p{font-size:16px}
 }
+/* ===== Bottom-half white background + white footer ===== */
+
+/* control where the split happens; 50% means the lower half is white */
+:root { --split: 50%; }
+
+/* sharp split: top = site bg, bottom = white */
+html, body {
+  background: linear-gradient(
+    to bottom,
+    var(--page) 0%,
+    var(--page) var(--split),
+    #fff        var(--split),
+    #fff        100%
+  );
+}
+
+/* keep the footer on solid white */
+footer {
+  background: #fff;
+  border-top: 1px solid #e6edf2;
+}
+

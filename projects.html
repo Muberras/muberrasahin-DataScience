@@ -1,62 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Projects — ML & MLOps · BI & Report Development — Muberra Sahin</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-<header class="site-header">
-  <nav class="nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a class="active" href="projects.html">Projects</a>
-    <a href="teaching.html">Teaching</a>
-    <a href="Muberra_Sahin_CV.pdf" target="_blank" rel="noopener">CV</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<section class="banner">
-  <div class="banner-inner">
-    <h1>Projects</h1>
-    <h2>ML & MLOps · BI & Report Development</h2>
-    <div class="tools">
-      <span class="chip">Power BI</span><span class="chip">SAP BO 4.3</span>
-      <span class="chip">Python</span><span class="chip">Anaconda</span>
-      <span class="chip">scikit-learn</span><span class="chip">PyCaret</span>
-      <span class="chip">TensorFlow/Keras</span><span class="chip">Streamlit</span>
-      <span class="chip">Docker</span><span class="chip">Hugging Face Spaces</span>
-      <span class="chip">Git/GitHub</span>
-    </div>
-  </div>
-</section>
-
-<main class="section">
-  <div id="repo-grid" class="repo-grid" aria-live="polite">
-    <!-- Repos will load here -->
-  </div>
-  <p class="meta" style="margin-top:16px">
-    Full list: <a href="https://github.com/muberras" target="_blank" rel="noopener">github.com/muberras</a>
-  </p>
-</main>
-
-<footer>©2025 BY MUBERRA SAHIN</footer>
-
 <script>
 (async function loadRepos(){
   const grid = document.getElementById('repo-grid');
+  const EXCLUDE = new Set(['muberrasahin-DataScience'.toLowerCase()]); // ← excluded by name
+
   try{
     const res = await fetch('https://api.github.com/users/muberras/repos?per_page=30&sort=updated');
     if(!res.ok) throw new Error('GitHub API error');
     const repos = await res.json();
+
     if(!Array.isArray(repos) || repos.length === 0){
       grid.innerHTML = '<p class="meta">No repositories found.</p>';
       return;
     }
+
     const cleaned = repos
-      .filter(r => !r.fork)
+      .filter(r => !r.fork && !EXCLUDE.has(r.name.toLowerCase()))
       .sort((a,b)=> new Date(b.pushed_at) - new Date(a.pushed_at))
       .slice(0, 12);
 
@@ -77,5 +35,3 @@
   }
 })();
 </script>
-</body>
-</html>
